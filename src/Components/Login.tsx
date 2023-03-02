@@ -1,4 +1,4 @@
-import { Form } from "./Form";
+import { Forma } from "./Forma";
 import { useAppDispatch } from "../Hooks/ReduxHooks";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../Store/Slices/UserSlice";
@@ -20,8 +20,8 @@ const Login = () => {
         );
         navigate("/");
       })
-      .catch(()=> alert("Invalid user"));
+      .catch(() => alert("Invalid user"));
   };
-  return <Form title="login" handleClick={handleLogin} />;
+  return <Forma title="login" handleClick={handleLogin} />;
 };
 export { Login };
