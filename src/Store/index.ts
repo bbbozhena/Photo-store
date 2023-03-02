@@ -5,3 +5,5 @@ import UserSlice from "./Slices/UserSlice";
         user:UserSlice
     }
  }) 
+ export type AppDispatch = typeof store.dispatch;
+ export type RootState = ReturnType<typeof store.getState>

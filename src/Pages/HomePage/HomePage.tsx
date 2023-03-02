@@ -1,9 +1,9 @@
 import { useAuth } from "../../Hooks/UseAuth";
 import { redirect } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../Hooks/ReduxHooks";
 import { removeUser } from "../../Store/Slices/UserSlice";
 function HomePage(): any {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { isAuth, email } = useAuth();
 
   return isAuth ? (
