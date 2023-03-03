@@ -1,0 +1,11 @@
+.header{
+    background-color: rgb(220, 220, 220);
+}
+.header .link{ 
+    color: rgb(124, 124, 124);
+}
+.profile-button{
+    padding-right:1% ;
+    font-size: medium;
+    color: rgb(0, 0, 0);
+}
