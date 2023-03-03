@@ -15,25 +15,26 @@ interface Props {
 export const Header: React.FC<Props> = ({ title }) => {
   const dispatch = useAppDispatch();
   const { isAuth, email } = useAuth();
-
-  const [show, setShow] = useState(false);
   return (
     <div className="header">
       <nav className="navbar">
-        <Navbar.Brand className="ps-2">{title}</Navbar.Brand>
+        <Navbar.Brand className="ps-2 text-light">{title}</Navbar.Brand>
         <Nav className="links">
           <Nav.Link className="link" href="#">
-            Products
+          <Link className="text-light text-decoration-none" to="/products">Products</Link>
           </Nav.Link>
           <Nav.Link className="link" href="#">
             Profile
           </Nav.Link>
+          <Nav.Link className="link" href="#">
+            Cart
+          </Nav.Link>
         </Nav>
-        <div className="profile-button">
+        <div className="profile-button \">
           {isAuth ? (
             <span onClick={() => dispatch(removeUser())}>Log out</span>
           ) : (
-            <Link to="/login">Login</Link>
+            <Link className="text-light text-decoration-none" to="/login">Login</Link>
           )}
         </div>
       </nav>
