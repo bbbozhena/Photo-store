@@ -24,7 +24,7 @@ export const Header: React.FC<Props> = ({ title }) => {
           <Link className="text-light text-decoration-none" to="/products">Products</Link>
           </Nav.Link>
           <Nav.Link className="link" href="#">
-            Profile
+          <Link className="text-light text-decoration-none" to="/profile">Profile</Link>
           </Nav.Link>
           <Nav.Link className="link" href="#">
             Cart

@@ -4,7 +4,7 @@ import { useAppDispatch } from "../../Hooks/ReduxHooks";
 import { removeUser } from "../../Store/Slices/UserSlice";
 import { Header } from "../../Components/Header";
 import "./ProfilePage.css"
-function HomePage(): any {
+export function Profile(): any {
     const dispatch = useAppDispatch();
     const { isAuth, email } = useAuth();
   
@@ -20,4 +20,4 @@ function HomePage(): any {
     );
   }
   
-  export default HomePage;
+  

@@ -3,7 +3,7 @@ import { useAppDispatch } from "../Hooks/ReduxHooks";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../Store/Slices/UserSlice";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-const Login = () => {
+export const Login = () => {
   const auth = getAuth();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -24,4 +24,4 @@ const Login = () => {
   };
   return <Forma title="login" handleClick={handleLogin} />;
 };
-export { Login };
+

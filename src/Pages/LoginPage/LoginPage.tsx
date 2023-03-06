@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Login } from "../../Components/Login";
 import "./LoginPage.css";
-function LoginPage() {
+export function LoginPage() {
   return (
     <div className="container">
       <div className="login">
@@ -14,4 +14,4 @@ function LoginPage() {
     </div>
   );
 }
-export default LoginPage;
+
