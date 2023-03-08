@@ -1,0 +1,22 @@
+p{
+    padding: 2%;
+}
+img{
+    padding: 5%;
+}
+.cards{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+    margin: 0% 2%;
+}
+.card-buttons{
+display: flex;
+justify-content: space-evenly;
+}
+.card-buttons button{
+    border: none;
+    border-radius: 30px;
+    margin: 4%;
+    padding: 4% 10%;
+}
