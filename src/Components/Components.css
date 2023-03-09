@@ -1,21 +1,35 @@
-.header{
+.head{
+   display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 2%;
 }
-.header .link{ 
+
+.links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.links .link{ 
     color: rgb(255, 255, 255);
     font-size: 22px;
+    padding: 0% 15%;
 }
 .profile-button{
     cursor: pointer;
-    padding-right:1% ;
     font-size: medium;
     color: rgb(255, 255, 255);
     border: 1px solid white;
     border-radius:20px;
+    margin: 0% 1%;
     padding: 10px 20px;
-    margin-right: 1%;
 }
-
+.cards{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+    margin: 0% 2%;
+}
 .card img{
     padding: 5%;
 }

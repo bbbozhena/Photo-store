@@ -7,13 +7,13 @@ export function HomePage(): any {
       <div>
         <Header title="Photo Store" />
       </div>
-      <text>
+      <div className="text">
         <small className="text-light text-opacity-50">Welcome to my soul</small>
         <h1 className="text-light my-2">Photo Works</h1>
         <Link className="text-light text-decoration-none look-button" to="/products">
           Take a look
         </Link>
-      </text>
+      </div>
       <div className="bubbles">
         <img src="/img/bubble.png"></img>
         <img src="/img/bubble.png"></img>
