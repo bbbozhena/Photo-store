@@ -9,13 +9,11 @@
 }
 .look-button{
     cursor: pointer;
-    padding-right:1% ;
     font-size: medium;
     color: rgba(247, 247, 247, 0.583);
     border: 1px solid white;
     border-radius:20px;
     padding: 10px 20px;
-    margin-right: 1%;
 }
 .text {
     position: absolute;

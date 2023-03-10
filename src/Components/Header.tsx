@@ -15,7 +15,7 @@ export const Header: React.FC<Props> = ({ title }) => {
   const { isAuth, email } = useAuth();
   return (
     <div className="head">
-      <span className="ps-2 text-light">{title}</span>
+      <span className="ps-2 fs-2 text-light">{title}</span>
       <div className="links">
         <div className="link">
           <Link className="text-light text-decoration-none" to="/products">
