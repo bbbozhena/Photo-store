@@ -18,3 +18,17 @@ connectToDb((err) => {
     console.log(`DB connection error: ${err}`);
   }
 });
+
+app.get("/photos",(req,res) => {
+  const photos = [];
+
+  db
+  .collection("photos")
+  .find()
+  .forEach((photo)=>photos.push(photo))
+  .then(()=> {
+    res
+    .status(200)
+    .json(photos)
+  })
+})
