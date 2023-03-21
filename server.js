@@ -19,16 +19,21 @@ connectToDb((err) => {
   }
 });
 
-app.get("/photos",(req,res) => {
+app.get("/Photos",(req,res) => {
   const photos = [];
 
   db
-  .collection("photos")
+  .collection("Photos")
   .find()
   .forEach((photo)=>photos.push(photo))
   .then(()=> {
     res
     .status(200)
     .json(photos)
+  })
+  .catch(()=>{
+    res 
+    .status(500)
+    .json({error:"Something goes wrong..."})
   })
 })
