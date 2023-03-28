@@ -1,23 +1,20 @@
 const express = require("express");
-const { connectToDb, getDb } = require("./db");
-const { ObjectId } = require("mongodb");
+const mongoose = require("mongoose");
+const Photo = require("./models/Photo");
 
 const PORT = 3000;
+const URL = "mongodb://localhost:27017/Photo-box";
 
 const app = express();
 app.use(express.json());
 
-let db;
+mongoose
+  .connect(URL)
+  .then((res) => console.log("Conecting to Mongo"))
+  .catch((err) => console.log(`DB connection error: ${err}`));
 
-connectToDb((err) => {
-  if (!err) {
-    app.listen(PORT, (err) => {
-      err ? console.log(err) : console.log(`Listening port ${PORT}`);
-    });
-    db = getDb();
-  } else {
-    console.log(`DB connection error: ${err}`);
-  }
+app.listen(PORT, (err) => {
+  err ? console.log(err) : console.log(`Listening port ${PORT}`);
 });
 
 const handleError = (res, error) => {
@@ -25,46 +22,34 @@ const handleError = (res, error) => {
 };
 
 app.get("/Photos", (req, res) => {
-  const photos = [];
-
-  db.collection("Photos")
-    .find()
-    .forEach((photo) => photos.push(photo))
-    .then(() => {
+  Photo.find()
+    .sort({ title: 1 })
+    .then((photos) => {
       res.status(200).json(photos);
     })
     .catch(() => handleError(res, "Something goes wrong..."));
 });
 
 app.get("/Photos/:id", (req, res) => {
-  if (ObjectId.isValid(req.params.id)) {
-    db.collection("Photos")
-      .findOne({ _id: new ObjectId(req.params.id) })
-      .then((doc) => {
-        res.status(200).json(doc);
-      })
-      .catch(() => handleError(res, "Something goes wrong..."));
-  } else {
-    handleError(res, "Wrong id!");
-  }
+  Photo.findById(req.params.id)
+    .then((photos) => {
+      res.status(200).json(photos);
+    })
+    .catch(() => handleError(res, "Something goes wrong..."));
 });
 
 app.delete("/Photos/:id", (req, res) => {
-  if (ObjectId.isValid(req.params.id)) {
-    db.collection("Photos")
-      .deleteOne({ _id: new ObjectId(req.params.id) })
-      .then((result) => {
-        res.status(200).json(result);
-      })
-      .catch(() => handleError(res, "Something goes wrong..."));
-  } else {
-    handleError(res, "Wrong id!");
-  }
+  Photo.findByIdAndDelete(req.params.id)
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch(() => handleError(res, "Something goes wrong..."));
 });
 
 app.post("/Photos", (req, res) => {
-  db.collection("Photos")
-    .insertOne(req.body)
+  const photo = new Photo(req.body);
+  photo
+    .save()
     .then((result) => {
       res.status(201).json(result);
     })
@@ -72,14 +57,9 @@ app.post("/Photos", (req, res) => {
 });
 
 app.patch("/Photos/:id", (req, res) => {
-  if (ObjectId.isValid(req.params.id)) {
-    db.collection("Photos")
-      .updateOne({ _id: new ObjectId(req.params.id) }, { $set: req.body })
-      .then((result) => {
-        res.status(200).json(result);
-      })
-      .catch(() => handleError(res, "Something goes wrong..."));
-  } else {
-    handleError(res, "Wrong id!");
-  }
+  Photo.findByIdAndUpdate(req.params.id, req.body)
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch(() => handleError(res, "Something goes wrong..."));
 });
