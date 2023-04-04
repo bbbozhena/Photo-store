@@ -1,9 +1,27 @@
-import { Card } from "../../Components/Card"
-import "./ProductsPage.css"
-export function People () {
-return(
+import { useState, useEffect } from "react";
+import { Card } from "../../Components/Card";
+import "./ProductsPage.css";
+import { useAppDispatch, useAppSelector } from "../../Hooks/ReduxHooks";
+import { fetchPhotos } from "../../Store/Slices/PhotoSlice";
+
+export const People: React.FC = () => {
+  const photos = useAppSelector((state: any) => state.photos.list);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPhotos());
+  }, [dispatch]);
+  return (
     <div className="cards ">
-       <Card title="Girl"/>  
-      </div>
-)
-}
+      {photos.map((photo: any) => (
+        <Card
+          title={photo.title}
+          src={photo.src}
+          add={photo.add}
+          like={photo.like}
+          type={photo.nature}
+        />
+      ))}
+    </div>
+  );
+};

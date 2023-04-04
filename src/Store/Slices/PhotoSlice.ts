@@ -18,10 +18,15 @@ export const fetchPhotos = createAsyncThunk<
   Photo[],
   undefined,
   { rejectValue: string }
->("photos/fetchPhotos", async function () {
+>("photos/fetchPhotos", async function (_, { rejectWithValue }) {
   const response = await fetch("http://localhost:3000/Photos");
 
+  if (!response.ok) {
+    return rejectWithValue("Server Error");
+  }
+
   const data = await response.json();
+  console.log(data);
   return data;
 });
 
@@ -30,7 +35,7 @@ const initialState: PhotoState = {
   loading: false,
   error: null,
 };
-
+console.log(initialState);
 const photoSlice = createSlice({
   name: "photos",
   initialState,
