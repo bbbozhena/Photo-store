@@ -1,17 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Card } from "../../Components/Card";
 import "./ProductsPage.css";
-export function Products() {
+export function ProductsPage(): any {
   return (
-    <div className="products-page">
-      <div className="products-name">
-        <Link className="links-photo rainbow-1" to="/people">
-          People
-        </Link>
-        <Link className="links-photo rainbow-2" to="/nature">
-          Nature
-        </Link>
-      </div>
+    <div className="products">
+      <Card title={"Test"} src={"Test"} add={false} like={false} type={"People"} />
     </div>
   );
 }

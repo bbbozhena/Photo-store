@@ -20,4 +20,3 @@ export const Card: FC<CardProps> = ({ title, src, add, like, type }) => {
     </div>
   );
 };
-

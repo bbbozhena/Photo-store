@@ -10,7 +10,10 @@ export function HomePage(): any {
       <div className="text">
         <small className="text-light text-opacity-50">Welcome to my soul</small>
         <h1 className="text-light my-2">Photo Works</h1>
-        <Link className="text-light text-decoration-none look-button" to="/products">
+        <Link
+          className="text-light text-decoration-none look-button"
+          to="/products"
+        >
           Take a look
         </Link>
       </div>
