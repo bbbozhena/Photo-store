@@ -1,4 +1,5 @@
 require("dotenv").config();
+const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const photoRouter = require("./backend/routes/PhotoRoutes");
@@ -9,6 +10,7 @@ const password = process.env.PASSWORDAPI;
 const URL = `mongodb+srv://bbbozhena:${password}@photocluster.uph0tyw.mongodb.net/Photo-box?retryWrites=true&w=majority`;
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(photoRouter);
 
