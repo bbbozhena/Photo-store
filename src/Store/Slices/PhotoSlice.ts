@@ -27,8 +27,6 @@ export const fetchPhotos = createAsyncThunk<
   }
 >("photos/fetchPhotos", async function (_, { rejectWithValue }) {
   const response = await fetch("http://localhost:3000/Photos");
-  console.log("Hello");
-  console.log(response);
 
   if (!response.ok) {
     return rejectWithValue("Server Error");
@@ -45,7 +43,7 @@ const initialState: PhotoState = {
   error: null,
 };
 
-const photoSlice = createSlice({
+export const photoSlice = createSlice({
   name: "photos",
   initialState,
   reducers: {},
@@ -67,7 +65,7 @@ const photoSlice = createSlice({
   },
 });
 
-export default photoSlice.reducer;
+export const reducer = photoSlice.reducer;
 
 function isError(action: AnyAction) {
   return action.type.endsWith("rejected");
