@@ -24,22 +24,26 @@
     margin: 0% 1%;
     padding: 0px 20px;
 }
-.cards{
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-evenly;
-    margin: 0% 2%;
+.card-item{
+    width: 350px;
+    background-color: #fff;
+    margin: 0% 2% 5% 2%;
+    border-bottom: 0.5px solid black;
 }
-.card img{
-    padding: 5%;
+.card-item p {
+    font-size: 24px;
+    margin-left: 4%;
+    font-weight: 200;
 }
+
 .card-buttons{
 display: flex;
 justify-content: space-evenly;
 }
 .card-buttons button{
-    border: none;
+    border: 0.5px solid black;
+    background-color: white;
     border-radius: 30px;
-    margin: 4%;
-    padding: 4% 10%;
+    margin-bottom: 5%;
+    padding: 2% 10%;
 }

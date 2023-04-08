@@ -10,8 +10,8 @@ interface CardProps {
 
 export const Card: FC<CardProps> = ({ title, src, add, like, type }) => {
   return (
-    <div className="card">
-      <img src={src} width={300} height={300}></img>
+    <div className="card-item">
+      <img src={src} width={350} height={370}></img>
       <p>{title}</p>
       <div className="card-buttons">
         <button>Add</button>

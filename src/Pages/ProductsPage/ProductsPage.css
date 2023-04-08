@@ -1,0 +1,6 @@
+.products{
+    display: inline-flex;
+    padding: 20px 10px;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
