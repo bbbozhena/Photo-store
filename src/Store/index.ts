@@ -1,13 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {userSlice} from "./Slices/UserSlice";
-import {photoSlice} from "./Slices/PhotoSlice"
+import userSlice from "./Slices/UserSlice";
+import photoSlice from "./Slices/PhotoSlice"
 
- const store = configureStore({
+ export const store = configureStore({
     reducer: {
-        user: userSlice.reducer,
-        photos: photoSlice.reducer,
+        user: userSlice,
+        photos: photoSlice,
     }
  });
- export default store;
  export type RootState = ReturnType<typeof store.getState>;
  export type AppDispatch = typeof store.dispatch;

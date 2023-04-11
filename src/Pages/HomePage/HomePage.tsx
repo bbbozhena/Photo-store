@@ -1,7 +1,12 @@
 import { Header } from "../../Components/Header";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
+
+
+
 export function HomePage(): any {
+  
+
   return (
     <div className="home">
       <div>

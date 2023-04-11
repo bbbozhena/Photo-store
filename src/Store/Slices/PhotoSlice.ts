@@ -65,7 +65,7 @@ export const photoSlice = createSlice({
   },
 });
 
-export const reducer = photoSlice.reducer;
+export default photoSlice.reducer;
 
 function isError(action: AnyAction) {
   return action.type.endsWith("rejected");
