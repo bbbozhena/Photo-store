@@ -11,6 +11,17 @@ export function Profile(): any {
 
   return isAuth ? (
     <div className="container profile">
+      <div className="user-data">
+        <img src="#"></img>
+        <h1>{email}</h1>
+      </div>
+
+      <div className="user-favourite">
+        <div className="card-favourite">
+          <span>HERE</span>
+        </div>
+      </div>
+
       <button onClick={() => dispatch(removeUser())}>
         Log out from {email}
       </button>
