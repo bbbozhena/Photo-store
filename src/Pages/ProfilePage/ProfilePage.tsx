@@ -10,22 +10,30 @@ export function Profile(): any {
   const { isAuth, email } = useAuth();
 
   return isAuth ? (
-    <div className="container profile">
-      <div className="user-data">
-        <img src="#"></img>
-        <h1>{email}</h1>
+    <>
+      <div className="container-profile">
+        <div className="profile">
+          <div className="user-data">
+            <img className="avatar" src="img/avatar.png"></img>
+            <h6>{email}</h6>
+          </div>
+        </div>
+        <button
+          className="log-out-button"
+          onClick={() => dispatch(removeUser())}
+        >
+          Log out
+        </button>
       </div>
-
       <div className="user-favourite">
+        <p>Your inspiration</p>
         <div className="card-favourite">
+          <span>HERE</span>
+          <span>HERE</span>
           <span>HERE</span>
         </div>
       </div>
-
-      <button onClick={() => dispatch(removeUser())}>
-        Log out from {email}
-      </button>
-    </div>
+    </>
   ) : (
     redirect("/login")
   );
