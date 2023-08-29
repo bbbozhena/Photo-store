@@ -23,9 +23,15 @@ export const Header: React.FC<Props> = ({ title }) => {
           </Link>
         </div>
         <div className="link">
-          <Link className="text-light text-decoration-none" to="/profile">
-            Profile
-          </Link>
+          {isAuth ? (
+            <Link className="text-light text-decoration-none" to="/profile">
+              Profile
+            </Link>
+          ) : (
+            <Link className="text-light text-decoration-none" to="/login">
+              Login
+            </Link>
+          )}
         </div>
         <div className="link">Cart</div>
       </div>

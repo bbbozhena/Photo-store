@@ -1,4 +1,5 @@
 import { Header } from "../../Components/Header";
+import { useAuth } from "../../Hooks/UseAuth";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
 
